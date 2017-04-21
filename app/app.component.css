@@ -1,0 +1,6 @@
+header {
+    background-color: forestgreen;
+}
+.completed {
+    text-decoration: line-through;
+}

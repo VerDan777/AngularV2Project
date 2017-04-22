@@ -4,6 +4,10 @@
             <h1>{{title}}</h1>
     </header>
     <main>
+        <form class="todo-form" (ngSubmit)="create(); todoForm.reset()" #todoForm="ngForm" (submit)="create($event,titleInput.value);titleInput.value='' ">
+            <input type="text" name="title" [(ngModel)]="newTodoTitle" placeholder="введите" required>{{newTodoTitle}}
+            <button type="submit" [disabled]="todoForm.form.invalid" >Добавить</button>
+        </form>
         <section class="todo-list" >
             <div class="todo-item completed" *ngFor="let todo of todos" [ngClass]= "{'completed':todo.completed}">{{todo.title}}</div>
             <button class="checkbox icon" (click)="toogle(todo)">
